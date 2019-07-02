@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "graph-data-structure": "^1.8.0",
+    "inquirer": "^6.4.1",
+    "lodash": "^4.17.11",
+    "wikijs": "^5.5.0",
+    "yargs": "^13.2.4"
+  }
+}
