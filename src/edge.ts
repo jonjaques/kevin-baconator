@@ -1,4 +1,4 @@
-import {Node} from './node'
+import { Node } from './node'
 
 export enum LinkType {
   Forward,
@@ -11,5 +11,5 @@ export class Edge {
     public target: Node,
     public type: LinkType,
     public strength: number = 1,
-  ) {}
+  ) { }
 }

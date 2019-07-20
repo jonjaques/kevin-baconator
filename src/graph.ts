@@ -1,10 +1,10 @@
-import {Edge} from './edge'
-import {Node} from './node'
+import { Edge } from './edge'
+import { Node } from './node'
 
 type MaybeNode = string | Node
 
 export class Graph {
-  private nodes: Map<string, Node>
+  private nodes: Map<string, Node> = new Map()
   private edges: Edge[] = []
 
   public hasNode(node: MaybeNode) {
@@ -29,5 +29,4 @@ export class Graph {
   private getId(node: MaybeNode): string {
     return typeof node === 'string' ? node : node.id
   }
-
 }

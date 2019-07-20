@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Node #resolve should calculate edges for links and backlinks 1`] = `
+Node {
+  "backlinks": Array [
+    "Bar",
+  ],
+  "edges": Array [
+    Edge {
+      "source": [Circular],
+      "strength": 1,
+      "target": Node {
+        "backlinks": Array [],
+        "edges": Array [],
+        "id": "Foo",
+        "links": Array [],
+        "page": null,
+        "resolving": false,
+      },
+      "type": 0,
+    },
+    Edge {
+      "source": Node {
+        "backlinks": Array [],
+        "edges": Array [],
+        "id": "Bar",
+        "links": Array [],
+        "page": null,
+        "resolving": false,
+      },
+      "strength": 1,
+      "target": [Circular],
+      "type": 1,
+    },
+  ],
+  "id": "Kevin Bacon",
+  "links": Array [
+    "Foo",
+  ],
+  "page": null,
+  "resolve": [MockFunction] {
+    "calls": Array [
+      Array [],
+    ],
+    "results": Array [
+      Object {
+        "type": "return",
+        "value": Promise {},
+      },
+    ],
+  },
+  "resolving": false,
+}
+`;
