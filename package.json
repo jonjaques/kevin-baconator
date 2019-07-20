@@ -6,5 +6,10 @@
     "lodash": "^4.17.11",
     "wikijs": "^5.5.0",
     "yargs": "^13.2.4"
+  },
+  "devDependencies": {
+    "@types/async": "^3.0.0",
+    "@types/lodash": "^4.14.136",
+    "typescript": "^3.5.3"
   }
 }
