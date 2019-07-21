@@ -14,7 +14,6 @@ Node {
         "edges": Array [],
         "id": "Foo",
         "links": Array [],
-        "page": null,
         "resolving": false,
       },
       "type": 0,
@@ -25,7 +24,6 @@ Node {
         "edges": Array [],
         "id": "Bar",
         "links": Array [],
-        "page": null,
         "resolving": false,
       },
       "strength": 1,
@@ -37,7 +35,6 @@ Node {
   "links": Array [
     "Foo",
   ],
-  "page": null,
   "resolve": [MockFunction] {
     "calls": Array [
       Array [],

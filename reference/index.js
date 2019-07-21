@@ -111,7 +111,7 @@ async function processGeneration(gen, nodes) {
   }
 
   debugPerf(`generation ${gen}`, now);
-  return union(...results).sort();
+  return union(...results)//.sort();
 }
 
 function serializeGraph() {

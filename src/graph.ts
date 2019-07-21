@@ -1,5 +1,6 @@
 import { Edge } from './edge'
 import { Node } from './node'
+export { Edge, Node }
 
 type MaybeNode = string | Node
 
@@ -15,10 +16,15 @@ export class Graph {
     this.nodes.delete(this.getId(node))
   }
 
-  public addNode(node: Node) {
+  public addNode(node: MaybeNode) {
     if (this.hasNode(node)) {
       return
     }
+
+    if (typeof node === 'string') {
+      node = new Node(node)
+    }
+
     this.nodes.set(node.id, node)
   }
 

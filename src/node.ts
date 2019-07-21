@@ -2,8 +2,6 @@ import { Edge, LinkType } from './edge'
 import { wiki } from './services/wiki'
 import { Page } from 'wikijs'
 
-type Nullable<T> = T | null
-
 export interface INodeResolveOptions {
   links: boolean
   backlinks: boolean
@@ -15,7 +13,7 @@ export class Node {
   public backlinks: string[] = []
   public edges: Edge[] = []
   public resolving = false
-  private page: Nullable<Page> = null
+  private page?: Page
 
   constructor(id: string) {
     this.id = id

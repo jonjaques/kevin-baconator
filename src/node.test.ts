@@ -1,4 +1,4 @@
-import { Node, INodeResolveOptions } from '../node'
+import { Node, INodeResolveOptions } from './node'
 
 jest.setTimeout(30 * 1000)
 
