@@ -1,0 +1,17 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended",
+        "tslint-clean-code"
+    ],
+    "jsRules": {},
+    "rules": {
+        "newspaper-order": true,
+        "semicolon": [
+            true,
+            "never"
+        ],
+        "no-console": false
+    },
+    "rulesDirectory": []
+}

@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Graph Algorithms Should compute topological sort tricky case. 1`] = `
+Object {
+  "links": Array [
+    Object {
+      "source": "a",
+      "target": "b",
+      "weight": 1,
+    },
+    Object {
+      "source": "a",
+      "target": "d",
+      "weight": 1,
+    },
+    Object {
+      "source": "b",
+      "target": "c",
+      "weight": 1,
+    },
+    Object {
+      "source": "d",
+      "target": "e",
+      "weight": 1,
+    },
+    Object {
+      "source": "c",
+      "target": "e",
+      "weight": 1,
+    },
+  ],
+  "nodes": Array [
+    Object {
+      "id": "a",
+    },
+    Object {
+      "id": "b",
+    },
+    Object {
+      "id": "d",
+    },
+    Object {
+      "id": "c",
+    },
+    Object {
+      "id": "e",
+    },
+  ],
+}
+`;
+
+exports[`Graph Algorithms Should compute topological sort, excluding source nodes. 1`] = `
+Object {
+  "links": Array [
+    Object {
+      "source": "a",
+      "target": "b",
+      "weight": 1,
+    },
+    Object {
+      "source": "b",
+      "target": "c",
+      "weight": 1,
+    },
+  ],
+  "nodes": Array [
+    Object {
+      "id": "a",
+    },
+    Object {
+      "id": "b",
+    },
+    Object {
+      "id": "c",
+    },
+  ],
+}
+`;
+
+exports[`Graph Algorithms Should compute topological sort. 1`] = `
+Object {
+  "links": Array [
+    Object {
+      "source": "socks",
+      "target": "shoes",
+      "weight": 1,
+    },
+    Object {
+      "source": "shirt",
+      "target": "belt",
+      "weight": 1,
+    },
+    Object {
+      "source": "shirt",
+      "target": "tie",
+      "weight": 1,
+    },
+    Object {
+      "source": "belt",
+      "target": "jacket",
+      "weight": 1,
+    },
+    Object {
+      "source": "tie",
+      "target": "jacket",
+      "weight": 1,
+    },
+    Object {
+      "source": "pants",
+      "target": "shoes",
+      "weight": 1,
+    },
+    Object {
+      "source": "pants",
+      "target": "belt",
+      "weight": 1,
+    },
+    Object {
+      "source": "underpants",
+      "target": "pants",
+      "weight": 1,
+    },
+  ],
+  "nodes": Array [
+    Object {
+      "id": "socks",
+    },
+    Object {
+      "id": "shoes",
+    },
+    Object {
+      "id": "shirt",
+    },
+    Object {
+      "id": "belt",
+    },
+    Object {
+      "id": "tie",
+    },
+    Object {
+      "id": "jacket",
+    },
+    Object {
+      "id": "pants",
+    },
+    Object {
+      "id": "underpants",
+    },
+  ],
+}
+`;
+
+exports[`Graph Algorithms Should exclude source nodes with a cycle. 1`] = `
+Object {
+  "links": Array [
+    Object {
+      "source": "a",
+      "target": "b",
+      "weight": 1,
+    },
+    Object {
+      "source": "b",
+      "target": "c",
+      "weight": 1,
+    },
+    Object {
+      "source": "c",
+      "target": "a",
+      "weight": 1,
+    },
+  ],
+  "nodes": Array [
+    Object {
+      "id": "a",
+    },
+    Object {
+      "id": "b",
+    },
+    Object {
+      "id": "c",
+    },
+  ],
+}
+`;
+
+exports[`Graph Algorithms Should exclude source nodes with multiple cycles. 1`] = `
+Object {
+  "links": Array [
+    Object {
+      "source": "a",
+      "target": "b",
+      "weight": 1,
+    },
+    Object {
+      "source": "a",
+      "target": "c",
+      "weight": 1,
+    },
+    Object {
+      "source": "b",
+      "target": "a",
+      "weight": 1,
+    },
+    Object {
+      "source": "b",
+      "target": "c",
+      "weight": 1,
+    },
+    Object {
+      "source": "c",
+      "target": "b",
+      "weight": 1,
+    },
+    Object {
+      "source": "c",
+      "target": "a",
+      "weight": 1,
+    },
+  ],
+  "nodes": Array [
+    Object {
+      "id": "a",
+    },
+    Object {
+      "id": "b",
+    },
+    Object {
+      "id": "c",
+    },
+  ],
+}
+`;
+
+exports[`Graph Data structure Should add edges and query for adjacent nodes. 1`] = `
+Object {
+  "links": Array [
+    Object {
+      "source": "a",
+      "target": "b",
+      "weight": 1,
+    },
+  ],
+  "nodes": Array [
+    Object {
+      "id": "a",
+    },
+    Object {
+      "id": "b",
+    },
+  ],
+}
+`;
+
+exports[`Graph Data structure Should add nodes and list them. 1`] = `
+Object {
+  "links": Array [],
+  "nodes": Array [
+    Object {
+      "id": "a",
+    },
+    Object {
+      "id": "b",
+    },
+  ],
+}
+`;
