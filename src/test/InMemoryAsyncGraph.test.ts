@@ -1,7 +1,8 @@
-// If using from the NPM package, this line would be
-// const graph = require("graph-data-structure");
 import assert from "assert"
-import { InMemoryAsyncGraph as Graph, Serialized } from "../lib/InMemoryAsyncGraph"
+import {
+  InMemoryAsyncGraph as Graph,
+  Serialized,
+} from "../lib/InMemoryAsyncGraph"
 import { comesBefore, contains, withWeight } from "./utils"
 
 describe("Graph", () => {
@@ -95,14 +96,11 @@ describe("Graph", () => {
       await graph.addEdge("a", "c")
       expect(await graph.outdegree("a")).toBe(2)
     })
-
   })
 
   describe("Algorithms", () => {
-
     // This example is from Cormen et al. "Introduction to Algorithms" page 550
     it("Should compute topological sort.", async () => {
-
       const graph = new Graph()
 
       // Shoes depend on socks.
@@ -143,7 +141,7 @@ describe("Graph", () => {
     })
 
     it("Should compute topological sort tricky case.", async () => {
-      const graph = new Graph()     //      a
+      const graph = new Graph() //      a
       //     / \
       await graph.addEdge("a", "b") //    b   |
       await graph.addEdge("a", "d") //    |   d
@@ -209,15 +207,21 @@ describe("Graph", () => {
       await graph.addEdge("e", "g")
       await graph.addNode("f")
 
-      assert.deepStrictEqual(await graph.lowestCommonAncestors("a", "a"), ["a"])
-      assert.deepStrictEqual(await graph.lowestCommonAncestors("a", "b"), ["b"])
-      assert.deepStrictEqual(await graph.lowestCommonAncestors("a", "c"), ["d", "e"])
+      assert.deepStrictEqual(await graph.lowestCommonAncestors("a", "a"), [
+        "a",
+      ])
+      assert.deepStrictEqual(await graph.lowestCommonAncestors("a", "b"), [
+        "b",
+      ])
+      assert.deepStrictEqual(await graph.lowestCommonAncestors("a", "c"), [
+        "d",
+        "e",
+      ])
       assert.deepStrictEqual(await graph.lowestCommonAncestors("a", "f"), [])
     })
   })
 
   describe("Edge cases and error handling", () => {
-
     it("Should return empty array of adjacent nodes for unknown nodes.", async () => {
       const graph = new Graph()
       assert.equal((await graph.adjacent("a")).length, 0)
@@ -238,7 +242,6 @@ describe("Graph", () => {
       const graph = new Graph()
       assert.equal(await graph.outdegree("z"), 0)
     })
-
   })
 
   describe("Serialization", () => {
@@ -280,7 +283,6 @@ describe("Graph", () => {
   })
 
   describe("Edge Weights", () => {
-
     it("Should set and get an edge weight.", async () => {
       const graph = new Graph()
       await graph.addEdge("a", "b", 5)
@@ -299,22 +301,26 @@ describe("Graph", () => {
       await graph.addEdge("a", "b")
       assert.equal(await graph.getEdgeWeight("a", "b"), 1)
     })
-
   })
 
   describe("Dijkstra's Shortest Path Algorithm", () => {
-
     it("Should compute shortest path on a single edge.", async () => {
       const graph = new Graph()
       await graph.addEdge("a", "b")
-      assert.deepEqual(await graph.shortestPath("a", "b"), withWeight(["a", "b"], 1))
+      assert.deepEqual(
+        await graph.shortestPath("a", "b"),
+        withWeight(["a", "b"], 1),
+      )
     })
 
     it("Should compute shortest path on two edges.", async () => {
       const graph = new Graph()
       await graph.addEdge("a", "b")
       await graph.addEdge("b", "c")
-      assert.deepEqual(await graph.shortestPath("a", "c"), withWeight(["a", "b", "c"], 2))
+      assert.deepEqual(
+        await graph.shortestPath("a", "c"),
+        withWeight(["a", "b", "c"], 2),
+      )
     })
 
     it("Should compute shortest path on example from Cormen text (p. 659).", async () => {
@@ -329,8 +335,14 @@ describe("Graph", () => {
       await graph.addEdge("x", "z", 4)
       await graph.addEdge("z", "x", 6)
 
-      assert.deepEqual(await graph.shortestPath("s", "z"), withWeight(["s", "y", "z"], 5 + 2))
-      assert.deepEqual(await graph.shortestPath("s", "x"), withWeight(["s", "y", "t", "x"], 5 + 3 + 1))
+      assert.deepEqual(
+        await graph.shortestPath("s", "z"),
+        withWeight(["s", "y", "z"], 5 + 2),
+      )
+      assert.deepEqual(
+        await graph.shortestPath("s", "x"),
+        withWeight(["s", "y", "t", "x"], 5 + 3 + 1),
+      )
     })
 
     it("Should throw error if source node not in await graph.", async () => {
@@ -342,7 +354,9 @@ describe("Graph", () => {
     it("Should throw error if dest node not in await graph.", async () => {
       const graph = new Graph()
       await graph.addEdge("b", "c")
-      expect(graph.shortestPath("b", "g")).rejects.toThrowError(/Destination node/)
+      expect(graph.shortestPath("b", "g")).rejects.toThrowError(
+        /Destination node/,
+      )
     })
 
     it("Should throw error if no path exists.", async () => {
@@ -359,6 +373,24 @@ describe("Graph", () => {
       await graph.addEdge("d", "e")
       const shortedPath = await graph.shortestPath("a", "c")
       assert.deepEqual(shortedPath, withWeight(["a", "b", "c"], 2))
+    })
+
+    it.skip("should work with a large dataset", async () => {
+      const trump = require("../../data/graph.json")
+      const graph = new Graph()
+      await graph.deserialize(trump)
+      console.log(await graph.serialize())
+      const shortedPath = await graph.shortestPath(
+        "Donald Trump",
+        "Kevin Bacon",
+      )
+      expect(shortedPath).toMatchInlineSnapshot(`
+        Array [
+          "Donald Trump",
+          "2017 Women's March",
+          "Kevin Bacon",
+        ]
+      `)
     })
   })
 })

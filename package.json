@@ -1,27 +1,42 @@
 {
+  "name": "kevin-baconator",
+  "version": "0.0.1",
+  "license": "MIT",
   "dependencies": {
-    "chalk": "^2.4.2",
     "graph-data-structure": "^1.9.0",
-    "inquirer": "^7.0.0",
-    "jest": "^24.9.0",
+    "ioredis": "^4.14.1",
     "lodash": "^4.17.15",
-    "wikijs": "^6.0.1",
-    "yargs": "^14.2.0"
+    "redis": "^2.8.0",
+    "uuid": "^3.3.3",
+    "wikijs": "^6.0.1"
   },
   "devDependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@types/ioredis": "^4.0.18",
     "@types/jest": "^24.0.19",
     "@types/react": "^16.9.9",
     "@types/react-dom": "^16.9.2",
+    "@types/redis": "^2.8.14",
+    "@types/uuid": "^3.4.5",
     "@types/webpack": "^4.39.4",
+    "@types/yargs": "^13.0.3",
+    "chalk": "^2.4.2",
+    "inquirer": "^7.0.0",
+    "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
     "tslint": "^5.20.0",
     "tslint-clean-code": "^0.2.10",
     "typescript": "^3.6.4",
-    "webpack": "^4.41.2"
+    "webpack": "^4.41.2",
+    "yargs": "^14.2.0"
   },
   "scripts": {
     "test": "jest",
-    "lint": "tslint src/**/*.ts"
+    "lint": "tslint src/**/*.ts",
+    "cli": "ts-node src/app/cli",
+    "tom": "ts-node src/app/cli -t \"Tom Cruise\"",
+    "donald": "ts-node src/app/cli -t \"Donald Trump\""
   }
 }

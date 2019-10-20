@@ -1,9 +1,4 @@
-
-// Unit tests for reactive-property.
 import assert from "assert"
-
-// If using from the NPM package, this line would be
-// var Graph = require("graph-data-structure");
 import { InMemoryGraph as Graph, ISerialized } from "../lib/InMemoryGraph"
 import { comesBefore, contains, withWeight } from "./utils"
 
